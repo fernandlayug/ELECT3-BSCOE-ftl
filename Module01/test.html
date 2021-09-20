@@ -1,17 +1,23 @@
-<!DOCTYPE HTML>
-<html>
-    <body>
-  
+<!doctype html>
+<html>   
+<form name="my">
+   <input name="one" value="10">
+   <input name="two" value="2">
+</form>
 
-        <script>
-          //Whille Loop
-          let i = 3;
-          while(i){
-            alert(i);
-            i--
-          }
-        </script>
-         
+<form name="my2">
+   <input name="one" value="3">
+   <input name="two" value="2">
+</form>
 
-    </body>
+      <script>
+
+    let form = document.forms.my2;
+
+    let elem = form.elements.one;
+    
+    alert(elem.value);
+
+      </script>
+   
 </html>
