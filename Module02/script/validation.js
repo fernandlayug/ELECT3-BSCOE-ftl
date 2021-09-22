@@ -1,17 +1,17 @@
 function validate(){
     if(document.myForm.Name.value =="") {
       document.getElementById("nameErr").innerHTML="Please enter your Fullname";
-        document.mForm.Name.focus();
+        document.myForm.Name.focus();
         return false;
     }
 
     if(document.myForm.account.value == "-1"){
-        alert("Please provide your account type!");
+        document.getElementById("AccountErr").innerHTML="Please provide your account type!";
         return false;
     }
 
     if (document.myForm.Age.value == ""){
-        alert("Please provide your age!");
+        document.getElementById("ageErr").innerHTML="Please enter your Fullname";
         document.myForm.Age.focus();
         return false;
     } else {
@@ -28,7 +28,7 @@ function validate(){
     } else {
         var regex = /^\S+@\S+\.\S+$/;
         if(regex.test(document.myForm.Email.value) == false) {
-            alert("Please enter a valid email address");
+            document.getElementById("emailErr").innerHTML="Please use the proper format of e-mail";
             document.myForm.Email.focus();
             return false;
         }
@@ -36,12 +36,31 @@ function validate(){
 
     var firstpassword=document.myForm.password.value;
     var secondpassword=document.myForm.password2.value;
-    if(firstpassword==secondpassword){
-        return true;
-    } else {
-        alert("Password must be the same!");
+    if(firstpassword!==secondpassword){
+        document.getElementById("passErr").innerHTML="Password and Confirm Password doesn't match!";
+        return false;
+    } 
+    
+    if(document.myForm.username.value== ""){
+        document.getElementById("userErr").innerHTML="Please provide your username!";
+        document.myForm.username.focus();
         return false;
     }
+
+    if(document.myForm.username.value.length < 8){
+        document.getElementById("userErr").innerHTML="Username atleast 8 character";
+        document.myForm.username.focus();
+        return false;
+    }
+    var userletters = /^[a-zA-Z0-9]+$/;
+    if(document.myForm.username.value.match(userletters))
+    {
+        return true;
+        } else{
+            document.getElementById("userErr").innerHTML="Username must have alphanumeric characters only!";
+            document.myForm.username.focus();
+            return false;
+        }
 
  
 }
