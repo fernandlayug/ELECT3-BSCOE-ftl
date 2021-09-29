@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Mouse Event - Hover Method</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+<style>
+    p{
+        padding: 20px;
+        font: 20px sans-serif;
+        background: yellow;
+    }
+
+    p.highlight{
+        background:pink;
+    }
+</style>
+
+
+<script>
+$(document).ready(function(){
+    $("p").hover(function(){
+        $(this).addClass("highlight");
+    }, function(){
+        $(this).removeClass("highlight");
+     });
+});
+</script>
+
+</head>
+
+<body>
+    
+        <p>Click on Me</p>
+        <p>Click on Me</p>
+        <p>Click on Me</p>
+
+
+</body>
+
+</html>
